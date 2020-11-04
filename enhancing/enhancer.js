@@ -14,7 +14,11 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+    Object.defineProperty(item, 'durability', {
+      value: 100
+    })
+    // return an item whose durability === 100
+    return {...item}
 }
 
 function get(item) {
