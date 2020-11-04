@@ -14,9 +14,29 @@ describe("enhancer unit tests", () => {
         })
     })
 
-    // it("enhances an item", () => {
+    it("enhances an item", () => {
+        expect(enhancer.success({
+            "name": "item",
+            "enhancement": 19,
+            "durability": 100
+        })).toEqual({
+            "name": "item",
+            "enhancement": 20,
+            "durability": 100
+        })
+    })
 
-    // })
+    it("enhances an item", () => {
+        expect(enhancer.success({
+            "name": "item",
+            "enhancement": 20,
+            "durability": 100
+        })).toEqual({
+            "name": "item",
+            "enhancement": 20,
+            "durability": 100
+        })
+    })
 
     // it("fails to enhance an item", () => {
 
