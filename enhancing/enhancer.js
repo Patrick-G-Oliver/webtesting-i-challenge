@@ -17,7 +17,22 @@ function success(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  if (item.enhancement > 16) {
+    Object.defineProperty(item, 'enhancement', {
+      value: item.enhancement -= 1
+    })
+  } 
+  if (item.enhancement < 15) {
+    Object.defineProperty(item, 'durability', {
+      value: item.durability -= 5
+    })
+    return (item)
+  } else if (item.enhancement >= 15) {
+    Object.defineProperty(item, 'durability', {
+      value: item.durability -= 10
+    })
+    return {...item}
+  }
 }
 
 function repair(item) {
@@ -33,5 +48,5 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  
 }
